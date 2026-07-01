@@ -638,3 +638,187 @@ main {
     margin-top: 19px;
   }
 }
+/* ---- Contact page (tabs + forms) ---- */
+
+.contact-email-link {
+  display: inline-block;
+  margin-bottom: var(--space-4);
+  font-weight: 600;
+}
+
+.contact-tabs {
+  display: flex;
+  gap: var(--space-1);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-4);
+}
+
+.contact-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: var(--space-2) var(--space-1);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  margin-bottom: -1px;
+  transition: color 0.15s ease;
+}
+
+.contact-tab:hover {
+  color: var(--color-text);
+}
+
+.contact-tab.active {
+  color: var(--color-text);
+  border-bottom-color: var(--color-accent);
+}
+
+.contact-form-description {
+  margin-bottom: var(--space-3);
+}
+
+.inquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 480px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.75rem;
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.15s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%239aa4b8' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2rem;
+}
+
+.inquiry-form .cta-primary {
+  align-self: flex-start;
+  border: none;
+  cursor: pointer;
+}
+
+.inquiry-form .cta-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-error {
+  color: #f2a154;
+  font-size: 0.85rem;
+}
+
+.form-success {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  max-width: 480px;
+}
+
+.form-success h3 {
+  color: var(--color-text);
+}
+
+/* ---- Privacy policy page ---- */
+
+.privacy-page {
+  padding: var(--space-5) 0;
+  max-width: 720px;
+}
+
+.privacy-page h1 {
+  color: var(--color-text);
+  font-size: 2rem;
+}
+
+.privacy-effective-date {
+  font-size: 0.85rem;
+  margin-bottom: var(--space-4);
+}
+
+.privacy-block {
+  margin-bottom: var(--space-4);
+}
+
+.privacy-block h2 {
+  color: var(--color-text);
+  font-size: 1.15rem;
+}
+
+.privacy-block ul {
+  padding-left: 1.2rem;
+  color: var(--color-text-muted);
+}
+
+.privacy-block li {
+  margin-bottom: 0.4rem;
+}
+
+/* ---- Footer links ---- */
+
+.footer-links {
+  margin: var(--space-2) 0;
+}
+
+.footer-links a {
+  font-size: 0.85rem;
+}
+
+/* ---- Form consent checkbox ---- */
+
+.form-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.form-consent input[type='checkbox'] {
+  margin-top: 0.2rem;
+  accent-color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.form-consent label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
