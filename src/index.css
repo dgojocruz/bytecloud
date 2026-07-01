@@ -1,0 +1,113 @@
+/* Palette below is a starting point, NOT final -- Designer role must confirm
+   with Darwin before locking in. Direction: technical, credible, graphite/blue,
+   moving away from Hostinger's generic default look. */
+:root {
+  --color-bg: #0b1220;
+  --color-surface: #121a2e;
+  --color-text: #eef1f7;
+  --color-text-muted: #9aa4b8;
+  --color-accent: #3a8ef6;
+  --color-border: #232d45;
+
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-heading:
+    'Inter', system-ui, sans-serif; /* swap for a distinct heading face once Designer picks one */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-logo {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+}
+
+.hero {
+  padding: 5rem 2rem;
+  max-width: 720px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  line-height: 1.15;
+}
+
+.cta-primary {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 0 2rem 3rem;
+}
+
+.service-card {
+  display: block;
+  padding: 1.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  color: var(--color-text);
+}
+
+.service-card-link {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.site-footer {
+  padding: 3rem 2rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.services-page,
+.about-page,
+.contact-page,
+.service-detail {
+  padding: 3rem 2rem;
+  max-width: 720px;
+}
+
+.service-block {
+  margin-bottom: 2rem;
+}
