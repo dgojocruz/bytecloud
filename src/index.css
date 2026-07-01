@@ -1,3 +1,462 @@
+/* Visual direction: "Graphite & Signal Blue" -- confirmed by Darwin.
+   Written mobile-first: base rules target small screens, min-width
+   media queries progressively enhance for tablet/desktop. */
+:root {
+  --color-bg: #0b1220;
+  --color-surface: #121a2e;
+  --color-surface-raised: #16203a;
+  --color-text: #eef1f7;
+  --color-text-muted: #9aa4b8;
+  --color-accent: #3a8ef6;
+  --color-accent-hover: #5aa0f8;
+  --color-border: #232d45;
+  --color-border-strong: #2f3b58;
+
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4.5rem;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+
+  /* Content max-width: matches how modern B2B/SaaS sites use widescreen
+     space (Stripe, Linear, etc. sit around 1280-1600px). Text blocks stay
+     narrower than this for readability -- see --measure. */
+  --max-width: 1600px;
+  --measure: 640px;
+
+  --container-pad: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --container-pad: 2rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  :root {
+    --container-pad: 3.5rem;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 var(--space-2);
+}
+
+p {
+  margin: 0 0 var(--space-2);
+  color: var(--color-text-muted);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+/* ---- Header ---- */
+/* Mobile-first: stacked by default, row layout from 640px up. */
+
+.site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-3) var(--container-pad);
+}
+
+.site-header .site-logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-logo {
+  display: block;
+  height: 26px;
+  width: auto;
+}
+
+@media (min-width: 640px) {
+  .site-logo {
+    height: 34px;
+  }
+}
+
+.site-header nav ul {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header nav a {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.site-header nav a:hover {
+  color: var(--color-text);
+}
+
+.site-header nav a.active {
+  color: var(--color-text);
+  border-bottom-color: var(--color-accent);
+}
+
+@media (min-width: 640px) {
+  .site-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-header nav ul {
+    gap: var(--space-4);
+  }
+}
+
+/* ---- Hero (full-bleed video) ---- */
+/* Breaks out of the main container to span the full viewport width,
+   regardless of the parent's max-width/padding. Text sits in its own
+   centered column on top via .hero-inner, matching site container rules. */
+
+.hero {
+  position: relative;
+  width: auto;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    100deg,
+    rgba(11, 18, 32, 0.94) 0%,
+    rgba(11, 18, 32, 0.75) 45%,
+    rgba(11, 18, 32, 0.4) 100%
+  );
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-5) var(--container-pad);
+  width: 100%;
+}
+
+.hero-content {
+  max-width: var(--measure);
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  color: var(--color-text);
+}
+
+.hero p {
+  font-size: 1.05rem;
+}
+
+.cta-primary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.cta-primary:hover {
+  background: var(--color-accent-hover);
+  color: #fff;
+}
+
+@media (min-width: 900px) {
+  .hero {
+    min-height: 620px;
+  }
+
+  .hero-inner {
+    padding: var(--space-6) var(--container-pad);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-media {
+    display: none;
+  }
+
+  .hero {
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* ---- Services grid / cards ---- */
+/* Mobile-first: single column, 2 columns from 640px, 4 from 1100px. */
+
+.services-overview,
+.services-page {
+  padding: var(--space-5) 0;
+}
+
+.services-overview h2 {
+  color: var(--color-text);
+  font-size: 1.4rem;
+  margin-bottom: var(--space-3);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 640px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .service-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.service-card {
+  display: block;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  overflow: hidden;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.service-card:hover {
+  border-color: var(--color-border-strong);
+  transform: translateY(-2px);
+}
+
+.service-card-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  object-fit: cover;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.service-card-body {
+  padding: var(--space-3);
+}
+
+.service-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: var(--space-1);
+  color: var(--color-text);
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  margin-bottom: var(--space-2);
+}
+
+.service-card-link {
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* ---- Service detail ---- */
+
+.service-detail {
+  padding: var(--space-5) 0;
+  max-width: var(--measure);
+}
+
+.service-detail h1 {
+  color: var(--color-text);
+  font-size: 2rem;
+}
+
+.service-detail .tagline {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.service-block {
+  margin-bottom: var(--space-4);
+}
+
+.service-block h2 {
+  color: var(--color-text);
+  font-size: 1.15rem;
+}
+
+.service-block ul {
+  padding-left: 1.2rem;
+  color: var(--color-text-muted);
+}
+
+.service-block li {
+  margin-bottom: 0.4rem;
+}
+
+/* ---- About / Contact ---- */
+
+.about-page,
+.contact-page {
+  padding: var(--space-5) 0;
+  max-width: 720px;
+}
+
+.about-page h1,
+.contact-page h1 {
+  color: var(--color-text);
+  font-size: 2rem;
+}
+
+.about-hero-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  margin: var(--space-3) 0 var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .about-hero-image {
+    aspect-ratio: 16 / 7;
+  }
+}
+
+.about-block {
+  margin-bottom: var(--space-4);
+}
+
+.about-block h2 {
+  color: var(--color-text);
+  font-size: 1.15rem;
+}
+
+.about-block ul {
+  padding-left: 1.2rem;
+  color: var(--color-text-muted);
+}
+
+.about-block li {
+  margin-bottom: 0.4rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .about-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.form-placeholder {
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+}
+
+/* ---- Footer ---- */
+
+.site-footer {
+  margin-top: var(--space-5);
+}
+
+.footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-4) var(--container-pad);
+}
+
+.footer-content .copyright {
+  font-size: 0.8rem;
+  margin-top: var(--space-2);
+}
+
 /* ---- Process timeline (Services page) ---- */
 /* Mobile-first: vertical stepper. Horizontal from 900px up. */
 
