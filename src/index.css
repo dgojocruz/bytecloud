@@ -108,8 +108,14 @@ main {
 
 .site-logo {
   display: block;
-  height: 22px;
+  height: 26px;
   width: auto;
+}
+
+@media (min-width: 640px) {
+  .site-logo {
+    height: 34px;
+  }
 }
 
 .site-header nav ul {
