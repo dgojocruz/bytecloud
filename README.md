@@ -67,6 +67,11 @@ adding a new service or case study should not require touching layout code.
   don't stretch paragraphs to the full container width.
 - Test any new section at ~375px (mobile), ~768px (tablet), and ~1440px+
   (desktop) before considering it done.
+- **Full-bleed sections** (like the homepage hero): use the `width: 100vw;
+left: 50%; margin-left: -50vw` pattern (see `.hero` in `src/index.css`) to
+  break out of `main`'s max-width/padding, then wrap inner content in a
+  container that re-applies `--max-width`/`--container-pad` so text still
+  lines up with the rest of the page.
 
 ## Brand assets
 
@@ -83,6 +88,9 @@ adding a new service or case study should not require touching layout code.
 
 ## Known TODOs (do not treat placeholders as final)
 
+- [ ] Hero video (`src/pages/Home.jsx`) is a free Pexels stock clip reused
+      from the previous Hostinger site as an interim asset -- flagged in-code.
+      Swap for real Bytecloud footage when available.
 - [ ] Real color palette + typography — current palette in `src/index.css` is a
       starting direction (graphite/blue, technical), not locked in. Confirm with Darwin.
 - [ ] Contact form: `CONTACT_FORM_URL` in `src/pages/Contact.jsx` is unset —

@@ -162,13 +162,52 @@ main {
   }
 }
 
-/* ---- Hero ---- */
-/* Mobile-first: single column, image below text. Two-column from 900px up. */
+/* ---- Hero (full-bleed video) ---- */
+/* Breaks out of the main container to span the full viewport width,
+   regardless of the parent's max-width/padding. Text sits in its own
+   centered column on top via .hero-inner, matching site container rules. */
 
 .hero {
-  display: grid;
-  gap: var(--space-4);
-  padding: var(--space-5) 0 var(--space-4);
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    100deg,
+    rgba(11, 18, 32, 0.94) 0%,
+    rgba(11, 18, 32, 0.75) 45%,
+    rgba(11, 18, 32, 0.4) 100%
+  );
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-5) var(--container-pad);
+  width: 100%;
 }
 
 .hero-content {
@@ -182,15 +221,6 @@ main {
 
 .hero p {
   font-size: 1.05rem;
-}
-
-.hero-image {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
 }
 
 .cta-primary {
@@ -210,13 +240,22 @@ main {
 
 @media (min-width: 900px) {
   .hero {
-    grid-template-columns: minmax(0, var(--measure)) 1fr;
-    align-items: center;
-    padding: var(--space-6) 0 var(--space-5);
+    min-height: 620px;
   }
 
-  .hero-image {
-    aspect-ratio: 5 / 4;
+  .hero-inner {
+    padding: var(--space-6) var(--container-pad);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-media {
+    display: none;
+  }
+
+  .hero {
+    background-size: cover;
+    background-position: center;
   }
 }
 
