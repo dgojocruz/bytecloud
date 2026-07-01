@@ -26,9 +26,9 @@
   --radius-md: 10px;
 
   /* Content max-width: matches how modern B2B/SaaS sites use widescreen
-     space (Stripe, Linear, etc. sit around 1200-1440px). Text blocks stay
+     space (Stripe, Linear, etc. sit around 1280-1600px). Text blocks stay
      narrower than this for readability -- see --measure. */
-  --max-width: 1280px;
+  --max-width: 1440px;
   --measure: 640px;
 
   --container-pad: 1.25rem;
@@ -37,6 +37,12 @@
 @media (min-width: 640px) {
   :root {
     --container-pad: 2rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container-pad: 3rem;
   }
 }
 
