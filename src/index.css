@@ -104,7 +104,6 @@ main {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: var(--space-3) var(--container-pad);
-  border-bottom: 1px solid var(--color-border);
 }
 
 .site-header .site-logo-link {
@@ -445,7 +444,6 @@ main {
 /* ---- Footer ---- */
 
 .site-footer {
-  border-top: 1px solid var(--color-border);
   margin-top: var(--space-5);
 }
 
