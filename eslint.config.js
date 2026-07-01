@@ -13,7 +13,13 @@ export default [
       ecmaVersion: 2022,
       sourceType: 'module',
       parserOptions: { ecmaFeatures: { jsx: true } },
-      globals: { window: 'readonly', document: 'readonly', console: 'readonly' },
+      globals: {
+        window: 'readonly',
+        document: 'readonly',
+        console: 'readonly',
+        fetch: 'readonly',
+        FormData: 'readonly',
+      },
     },
     plugins: {
       react,

@@ -54,11 +54,47 @@ src/
 Service and case-study content lives in `src/data/`, not hardcoded in JSX —
 adding a new service or case study should not require touching layout code.
 
+## Layout & responsive conventions
+
+- **Mobile-first CSS**: base rules in `src/index.css` target small screens.
+  Complexity is added with `min-width` media queries (`640px`, `900px`,
+  `1100px`), never `max-width` overrides. Keep new component styles
+  consistent with this — write the mobile layout first, then progressively
+  enhance.
+- **Container width**: `--max-width: 1600px` (`src/index.css`) is the site's
+  content boundary, pushed wide so the header/services/footer read
+  consistently with the full-bleed hero above them instead of looking
+  noticeably narrower by comparison. Body text blocks use the narrower
+  `--measure: 640px` for readable line length — don't stretch paragraphs
+  to the full container width.
+- Test any new section at ~375px (mobile), ~768px (tablet), and ~1440px+
+  (desktop) before considering it done.
+- **Full-bleed sections** (like the homepage hero): use the `width: 100vw;
+left: 50%; margin-left: -50vw` pattern (see `.hero` in `src/index.css`) to
+  break out of `main`'s max-width/padding, then wrap inner content in a
+  container that re-applies `--max-width`/`--container-pad` so text still
+  lines up with the rest of the page.
+
+## Brand assets
+
+- `src/assets/brand/bytecloud-logo.svg` — primary wordmark (light text, blue
+  accent on the "Y"), for dark backgrounds. Used in Header/Footer.
+- `public/favicon.svg` — compact "Y" monogram on navy, used as the browser
+  favicon.
+- Wordmark font is Poppins (300 weight), loaded via Google Fonts in
+  `index.html`. Distinct from the site's body/heading fonts (Inter/Space
+  Grotesk) — intentional, logos commonly use their own typeface.
+- TODO: a light-background version of the wordmark (navy text) doesn't exist
+  yet — needed if the logo is ever placed on a light surface (print,
+  partner co-branding, etc.).
+
 ## Known TODOs (do not treat placeholders as final)
 
+- [ ] Hero video (`src/pages/Home.jsx`) is a free Pexels stock clip reused
+      from the previous Hostinger site as an interim asset -- flagged in-code.
+      Swap for real Bytecloud footage when available.
 - [ ] Real color palette + typography — current palette in `src/index.css` is a
       starting direction (graphite/blue, technical), not locked in. Confirm with Darwin.
-- [ ] Favicon / logo assets
 - [ ] Contact form: `CONTACT_FORM_URL` in `src/pages/Contact.jsx` is unset —
       create the Bytecloud Google Form (same pattern as Avocadoria's careers/
       franchise forms) and wire it in. Alternative: serverless function + email API.
