@@ -68,11 +68,23 @@ adding a new service or case study should not require touching layout code.
 - Test any new section at ~375px (mobile), ~768px (tablet), and ~1440px+
   (desktop) before considering it done.
 
+## Brand assets
+
+- `src/assets/brand/bytecloud-logo.svg` — primary wordmark (light text, blue
+  accent on the "Y"), for dark backgrounds. Used in Header/Footer.
+- `public/favicon.svg` — compact "Y" monogram on navy, used as the browser
+  favicon.
+- Wordmark font is Poppins (300 weight), loaded via Google Fonts in
+  `index.html`. Distinct from the site's body/heading fonts (Inter/Space
+  Grotesk) — intentional, logos commonly use their own typeface.
+- TODO: a light-background version of the wordmark (navy text) doesn't exist
+  yet — needed if the logo is ever placed on a light surface (print,
+  partner co-branding, etc.).
+
 ## Known TODOs (do not treat placeholders as final)
 
 - [ ] Real color palette + typography — current palette in `src/index.css` is a
       starting direction (graphite/blue, technical), not locked in. Confirm with Darwin.
-- [ ] Favicon / logo assets
 - [ ] Contact form: `CONTACT_FORM_URL` in `src/pages/Contact.jsx` is unset —
       create the Bytecloud Google Form (same pattern as Avocadoria's careers/
       franchise forms) and wire it in. Alternative: serverless function + email API.

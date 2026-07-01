@@ -101,12 +101,15 @@ main {
   border-bottom: 1px solid var(--color-border);
 }
 
-.site-header .site-logo {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.06em;
-  color: var(--color-text);
+.site-header .site-logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-logo {
+  display: block;
+  height: 22px;
+  width: auto;
 }
 
 .site-header nav ul {
@@ -399,13 +402,6 @@ main {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: var(--space-4) var(--container-pad);
-}
-
-.footer-content .site-logo {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  color: var(--color-text);
-  letter-spacing: 0.06em;
 }
 
 .footer-content .copyright {

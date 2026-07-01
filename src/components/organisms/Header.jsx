@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import logo from '../../assets/brand/bytecloud-logo.svg';
 
 const navLinks = [
   { to: '/', label: 'Home', end: true },
@@ -10,8 +11,8 @@ const navLinks = [
 function Header() {
   return (
     <header className="site-header">
-      <NavLink to="/" className="site-logo" end>
-        BYTECLOUD
+      <NavLink to="/" className="site-logo-link" end>
+        <img src={logo} alt="Bytecloud" className="site-logo" />
       </NavLink>
       <nav aria-label="Primary">
         <ul>
