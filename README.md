@@ -61,10 +61,12 @@ adding a new service or case study should not require touching layout code.
   `1100px`), never `max-width` overrides. Keep new component styles
   consistent with this — write the mobile layout first, then progressively
   enhance.
-- **Container width**: `--max-width: 1440px` (`src/index.css`) is the site's
-  content boundary, matching wider modern B2B/SaaS site standards. Body text
-  blocks use the narrower `--measure: 640px` for readable line length —
-  don't stretch paragraphs to the full container width.
+- **Container width**: `--max-width: 1600px` (`src/index.css`) is the site's
+  content boundary, pushed wide so the header/services/footer read
+  consistently with the full-bleed hero above them instead of looking
+  noticeably narrower by comparison. Body text blocks use the narrower
+  `--measure: 640px` for readable line length — don't stretch paragraphs
+  to the full container width.
 - Test any new section at ~375px (mobile), ~768px (tablet), and ~1440px+
   (desktop) before considering it done.
 - **Full-bleed sections** (like the homepage hero): use the `width: 100vw;
