@@ -54,6 +54,20 @@ src/
 Service and case-study content lives in `src/data/`, not hardcoded in JSX —
 adding a new service or case study should not require touching layout code.
 
+## Layout & responsive conventions
+
+- **Mobile-first CSS**: base rules in `src/index.css` target small screens.
+  Complexity is added with `min-width` media queries (`640px`, `900px`,
+  `1100px`), never `max-width` overrides. Keep new component styles
+  consistent with this — write the mobile layout first, then progressively
+  enhance.
+- **Container width**: `--max-width: 1280px` (`src/index.css`) is the site's
+  content boundary, matching common practice for modern B2B/SaaS sites.
+  Body text blocks use the narrower `--measure: 640px` for readable line
+  length — don't stretch paragraphs to the full container width.
+- Test any new section at ~375px (mobile), ~768px (tablet), and ~1440px+
+  (desktop) before considering it done.
+
 ## Known TODOs (do not treat placeholders as final)
 
 - [ ] Real color palette + typography — current palette in `src/index.css` is a
