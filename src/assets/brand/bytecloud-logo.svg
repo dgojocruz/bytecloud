@@ -1,11 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 90" role="img" aria-label="Bytecloud">
-  <text
-    x="4"
-    y="64"
-    font-family="'Poppins', 'Century Gothic', 'Futura', sans-serif"
-    font-weight="300"
-    font-size="56"
-    letter-spacing="6"
-    xml:space="preserve"
-  ><tspan fill="#eef1f7">B</tspan><tspan fill="#3a8ef6">Y</tspan><tspan fill="#eef1f7">TECLOUD</tspan></text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 100" role="img" aria-label="Bytecloud">
+  <g font-family="'Poppins', 'Century Gothic', 'Futura', sans-serif" font-weight="700" font-size="60" letter-spacing="4">
+    <text x="5" y="71" fill="#020408" opacity="0.75">BYTECLOUD</text>
+    <text x="3" y="69" fill="#ffffff" opacity="0.4">BYTECLOUD</text>
+    <text x="4" y="70" xml:space="preserve"
+      ><tspan fill="#eef1f7">B</tspan><tspan fill="#5aa0f8">Y</tspan><tspan fill="#eef1f7">TECLOUD</tspan></text
+    >
+  </g>
 </svg>
