@@ -1,0 +1,53 @@
+// Process data for the Services page's interactive stepper.
+// TODO: duration estimates are typical-case placeholders -- confirm real
+// figures with Darwin before treating these as commitments to clients.
+export const processSteps = [
+  {
+    id: '01',
+    title: 'Discovery & Consultation',
+    summary:
+      'We start by understanding your operations, current systems, and where the friction actually is.',
+    details: [
+      'On-site or remote infrastructure assessment',
+      'Stakeholder interviews to map real requirements',
+      'Gap analysis against your growth plans',
+    ],
+    duration: '1\u20132 weeks, typical',
+  },
+  {
+    id: '02',
+    title: 'Proposal & Approval',
+    summary:
+      'You get a clear scope, timeline, and cost before any work begins \u2014 no surprises mid-project.',
+    details: [
+      'Solution architecture and technical proposal',
+      'Transparent timeline and cost breakdown',
+      'Sign-off and kickoff scheduling',
+    ],
+    duration: '1 week, typical',
+  },
+  {
+    id: '03',
+    title: 'Implementation & Deployment',
+    summary:
+      'We build and deploy in stages, so your team keeps working while the new systems come online.',
+    details: [
+      'Staged rollout with defined checkpoints',
+      'Configuration, testing, and data migration',
+      'Team walkthroughs as systems go live',
+    ],
+    duration: 'Varies by project scope',
+  },
+  {
+    id: '04',
+    title: 'Post-Implementation Support',
+    summary:
+      'Go-live is the start, not the finish \u2014 we stay on to monitor, maintain, and support your team.',
+    details: [
+      'Proactive monitoring and maintenance',
+      'Direct support channel for issues',
+      'Ongoing optimization as your business grows',
+    ],
+    duration: 'Ongoing',
+  },
+];
